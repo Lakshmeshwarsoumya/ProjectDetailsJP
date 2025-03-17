@@ -3,6 +3,7 @@ package com.joom.automation.SmokeTestCases;
 import java.io.IOException;
 
 import org.apache.poi.EncryptedDocumentException;
+import org.junit.runners.Parameterized.Parameters;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.testng.annotations.DataProvider;
@@ -18,6 +19,7 @@ import com.joom.automation.objectrepository.HomePage;
 import com.joom.automation.objectrepository.ManageProductsPage;
 @Listeners(com.joom.automation.listenerutility.ListenerImplementation.class)
 public class ManageProductsTest extends BaseClassForAdmin {
+	
 	@Test(dataProvider = "productData",groups="Smoke")
 	public void deleteProducts(String ProductName) throws Throwable {
 		mpp = new ManageProductsPage(driver);

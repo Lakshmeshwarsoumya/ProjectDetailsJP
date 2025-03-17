@@ -3,6 +3,7 @@ package com.joom.automation.baseutility;
 import java.io.IOException;
 import java.sql.SQLException;
 
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
@@ -15,6 +16,7 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Optional;
+import org.testng.annotations.Parameters;
 
 import com.google.protobuf.TextFormat.ParseException;
 import com.joom.automation.WebDriverUtility.UtilityClassObject;
@@ -65,12 +67,12 @@ public class BaseClassForAdmin {
 	public void configBS() {
 		Reporter.log("=== Connecting to Database and Configuring Reports ===", true);
 	}
-
-	@BeforeClass(groups={"Integration","System","Smoke"})
-	public void configBC()throws Throwable {
+	@Parameters("Browser")
+	@BeforeClass(alwaysRun = true,groups={"Integration","System","Smoke"})
+	public void configBC(@Optional("chrome") String browser)throws Throwable {
 	    Reporter.log("=== Launching Browser ===", true);
 	    jad = new JsonForAdminUtility();
-	    String browser = jad.readDataFromJson("browser");
+	    //String browser = jad.readDataFromJson("browser");
 	    String URL = jad.readDataFromJson("url");
 
 	    if (browser.equalsIgnoreCase("chrome")) {

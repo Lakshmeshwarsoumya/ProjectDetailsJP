@@ -1,8 +1,5 @@
 package com.joom.automation.IntegrationTestCases;
 
-import java.io.IOException;
-
-import org.apache.poi.EncryptedDocumentException;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -11,15 +8,30 @@ import org.testng.annotations.Test;
 
 import com.joom.automation.WebDriverUtility.WebdriverUtility;
 import com.joom.automation.baseutility.BaseClassForAdmin;
-import com.joom.automation.generic.fileutility.ExcelUtilityForAdmin;
+import com.joom.automation.generic.fileutility.ExcelUtility;
+import com.joom.automation.generic.fileutility.JsonForAdminUtility;
+import com.joom.automation.objectrepository.AdminLoginPage;
 import com.joom.automation.objectrepository.AdminPage;
+import com.joom.automation.objectrepository.HomePage;
 import com.joom.automation.objectrepository.InsertProductPage;
 @Listeners(com.joom.automation.listenerutility.ListenerImplementation.class)
 public class InsertProductTest extends BaseClassForAdmin {
 	@Test(groups="Integration")
-	public void insertProduct() throws EncryptedDocumentException, IOException, InterruptedException {
+	public void insertProduct() throws Throwable {
 		adp = new AdminPage(driver);
-		ela = new ExcelUtilityForAdmin();
+		wlib = new WebdriverUtility();
+		jad = new JsonForAdminUtility();
+
+		String USERNAME = jad.readDataFromJson("username");
+		String PASSWORD = jad.readDataFromJson("password");
+
+		hp = new HomePage(driver);
+		hp.getAdminLoginLink().click();
+
+		adlp = new AdminLoginPage(driver);
+		adlp.adminLogin(USERNAME, PASSWORD);
+
+		ela = new ExcelUtility();
 		String category = ela.getDataFromExcel("Sheet1", 1, 0);
 		adp.getInserProductLink().click();
 
@@ -71,6 +83,8 @@ public class InsertProductTest extends BaseClassForAdmin {
         // Click the Insert butto/.n
        
         insertButton.click();
+        
+        adp.getLogoutLink().click();
 
 	}
 

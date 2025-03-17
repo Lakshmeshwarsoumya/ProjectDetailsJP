@@ -19,13 +19,21 @@ import org.testng.annotations.Optional;
 import com.google.protobuf.TextFormat.ParseException;
 import com.joom.automation.WebDriverUtility.UtilityClassObject;
 import com.joom.automation.WebDriverUtility.WebdriverUtility;
-import com.joom.automation.generic.fileutility.ExcelUtilityForAdmin;
+import com.joom.automation.generic.fileutility.ExcelUtility;
+
 import com.joom.automation.generic.fileutility.JsonForAdminUtility;
+import com.joom.automation.generic.fileutility.JsonForUserUtility;
 import com.joom.automation.objectrepository.AdminLoginPage;
 import com.joom.automation.objectrepository.AdminPage;
 import com.joom.automation.objectrepository.HomePage;
 import com.joom.automation.objectrepository.ManageProductsPage;
 import com.joom.automation.objectrepository.SubCategoryPage;
+import com.joom.automation.objectrepository.UserBooksCategoryPage;
+import com.joom.automation.objectrepository.UserFashionCategoryPage;
+import com.joom.automation.objectrepository.UserMyCartPage;
+import com.joom.automation.objectrepository.UserPaymentMethodPage;
+import com.joom.automation.objectrepository.UserProductDetailsPage;
+import com.joom.automation.objectrepository.UserShoppingHomePage;
 
 /**
  * CrossBrowserBaseClass manages test setup and teardown across multiple
@@ -41,10 +49,17 @@ public class BaseClassForAdmin {
 	public HomePage hp;
 	public AdminPage adp;
 	public WebdriverUtility wlib;
-	public ExcelUtilityForAdmin ela ;
+	public ExcelUtility ela ;
 	public ManageProductsPage mpp;
 	public SubCategoryPage scp;
 	public static WebDriver sdriver=null;
+	public UserShoppingHomePage ushp;
+	public UserFashionCategoryPage ufcp;
+	public UserMyCartPage umcp;
+	public UserBooksCategoryPage ubcp;
+	public UserProductDetailsPage updp;
+	public UserPaymentMethodPage upmp;
+	public JsonForUserUtility  jsd;
 
 	@BeforeSuite(groups={"Integration","System","Smoke"})
 	public void configBS() {
@@ -70,7 +85,7 @@ public class BaseClassForAdmin {
 	    }
 	    sdriver = driver;
 		UtilityClassObject .setDriver(driver);
-	    driver.get(URL);
+		driver.get(URL);
 	    driver.manage().window().maximize();
 	   
 	}
@@ -79,17 +94,16 @@ public class BaseClassForAdmin {
 	public void configBM() throws ParseException, IOException, Throwable {
 		Reporter.log("=== Logging into Application ===", true);
 
-		jad = new JsonForAdminUtility();
-
-		String USERNAME = jad.readDataFromJson("username");
-		String PASSWORD = jad.readDataFromJson("password");
-
-		hp = new HomePage(driver);
-		hp.getAdminLoginLink().click();
-
-		adlp = new AdminLoginPage(driver);
-		adlp.adminLogin(USERNAME, PASSWORD);
-
+		/*
+		 * jad = new JsonForAdminUtility();
+		 * 
+		 * String USERNAME = jad.readDataFromJson("username"); String PASSWORD =
+		 * jad.readDataFromJson("password");
+		 * 
+		 * hp = new HomePage(driver); hp.getAdminLoginLink().click();
+		 * 
+		 * adlp = new AdminLoginPage(driver); adlp.adminLogin(USERNAME, PASSWORD);
+		 */
 	}
 
 	/**
@@ -98,8 +112,7 @@ public class BaseClassForAdmin {
 	@AfterMethod(groups={"Integration","System","Smoke"})
 	public void configAM() {
 		Reporter.log("=== Logging out of Application ===", true);
-		adp = new AdminPage(driver);
-		adp.logout();
+		
 
 	}
 

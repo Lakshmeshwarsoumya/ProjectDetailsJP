@@ -9,7 +9,7 @@ public class SubCategoryPage {
 	@FindBy(xpath = "//select[@name='category']")
 	private WebElement categoryDropdown;
 
-	@FindBy(xpath = "//input[@name='subcategory']")
+	@FindBy(xpath = "//input[@placeholder='Enter SubCategory Name']")
 	private WebElement subCategoryDropdown;
 
 	@FindBy(xpath = "//button[text()='Create']")

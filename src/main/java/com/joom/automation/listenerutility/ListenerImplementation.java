@@ -31,7 +31,7 @@ public class ListenerImplementation implements ITestListener, ISuiteListener {
 		System.out.println("Report Configuration");
 		// spark report configuration
 		String time = new Date().toString().replace(" ", " _").replace(":", "_");
-		ExtentSparkReporter spark = new ExtentSparkReporter("./AdvanceReport" + "" + time + "/report.html");
+		ExtentSparkReporter spark = new ExtentSparkReporter("./AdvanceReport./report"+time+".html");
 		spark.config().setDocumentTitle("CRM Test SUite Results");
 		spark.config().setReportName("CRM report");
 		spark.config().setTheme(Theme.DARK);

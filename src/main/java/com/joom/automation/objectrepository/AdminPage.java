@@ -17,7 +17,7 @@ public class AdminPage {
 	@FindBy(xpath = "//a[text()=' Create Category ']")
 	private WebElement createCategoryLink;
 
-	@FindBy(xpath = "//a[text()='Sub Category ']")
+	@FindBy(xpath = "//a[@href='subcategory.php']")
 	private WebElement subCategoryLink;
 
 	@FindBy(xpath = "//a[text()='Insert Product ']")

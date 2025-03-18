@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="1" passed="0" failed="1" skipped="0">
+<testng-results ignored="0" total="4" passed="0" failed="4" skipped="0">
   <reporter-output>
     <line>
       <![CDATA[=== Connecting to Database and Configuring Reports ===]]>
@@ -11,7 +11,22 @@
       <![CDATA[=== Logging into Application ===]]>
     </line>
     <line>
-      <![CDATA[category created successfully]]>
+      <![CDATA[=== Logging out of Application ===]]>
+    </line>
+    <line>
+      <![CDATA[=== Logging into Application ===]]>
+    </line>
+    <line>
+      <![CDATA[=== Logging out of Application ===]]>
+    </line>
+    <line>
+      <![CDATA[=== Logging into Application ===]]>
+    </line>
+    <line>
+      <![CDATA[=== Logging out of Application ===]]>
+    </line>
+    <line>
+      <![CDATA[=== Logging into Application ===]]>
     </line>
     <line>
       <![CDATA[=== Logging out of Application ===]]>
@@ -20,47 +35,57 @@
       <![CDATA[=== Closing DB Connection and Generating Reports ===]]>
     </line>
   </reporter-output>
-  <suite started-at="2025-03-17T15:45:10 IST" name="Default suite" finished-at="2025-03-17T15:45:26 IST" duration-ms="16010">
+  <suite started-at="2025-03-18T06:53:53 IST" name="Default suite" finished-at="2025-03-18T06:57:42 IST" duration-ms="228985">
     <groups>
-      <group name="System">
-        <method signature="CreateCategoryTest.createCategory()[pri:0, instance:com.joom.automation.SystemTestCases.CreateCategoryTest@291b4bf5]" name="createCategory" class="com.joom.automation.SystemTestCases.CreateCategoryTest"/>
-      </group> <!-- System -->
+      <group name="Smoke">
+        <method signature="ManageProductsTest.deleteProducts(java.lang.String)[pri:0, instance:com.joom.automation.SmokeTestCases.ManageProductsTest@fa36558]" name="deleteProducts" class="com.joom.automation.SmokeTestCases.ManageProductsTest"/>
+      </group> <!-- Smoke -->
     </groups>
-    <test started-at="2025-03-17T15:45:10 IST" name="Default test" finished-at="2025-03-17T15:45:26 IST" duration-ms="16010">
-      <class name="com.joom.automation.SystemTestCases.CreateCategoryTest">
-        <test-method is-config="true" signature="configBS()[pri:0, instance:com.joom.automation.SystemTestCases.CreateCategoryTest@291b4bf5]" started-at="2025-03-17T15:45:10 IST" name="configBS" finished-at="2025-03-17T15:45:10 IST" duration-ms="16" status="PASS">
+    <test started-at="2025-03-18T06:53:53 IST" name="Default test" finished-at="2025-03-18T06:57:42 IST" duration-ms="228985">
+      <class name="com.joom.automation.SmokeTestCases.ManageProductsTest">
+        <test-method is-config="true" signature="configBS()[pri:0, instance:com.joom.automation.SmokeTestCases.ManageProductsTest@fa36558]" started-at="2025-03-18T06:53:53 IST" name="configBS" finished-at="2025-03-18T06:53:53 IST" duration-ms="17" status="PASS">
           <reporter-output>
             <line>
               <![CDATA[=== Connecting to Database and Configuring Reports ===]]>
             </line>
           </reporter-output>
         </test-method> <!-- configBS -->
-        <test-method is-config="true" signature="configBC()[pri:0, instance:com.joom.automation.SystemTestCases.CreateCategoryTest@291b4bf5]" started-at="2025-03-17T15:45:10 IST" name="configBC" finished-at="2025-03-17T15:45:18 IST" duration-ms="8279" status="PASS">
+        <test-method is-config="true" signature="configBC(java.lang.String)[pri:0, instance:com.joom.automation.SmokeTestCases.ManageProductsTest@fa36558]" started-at="2025-03-18T06:53:53 IST" name="configBC" finished-at="2025-03-18T06:54:01 IST" duration-ms="7957" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[chrome]]>
+              </value>
+            </param>
+          </params>
           <reporter-output>
             <line>
               <![CDATA[=== Launching Browser ===]]>
             </line>
           </reporter-output>
         </test-method> <!-- configBC -->
-        <test-method is-config="true" signature="configBM()[pri:0, instance:com.joom.automation.SystemTestCases.CreateCategoryTest@291b4bf5]" started-at="2025-03-17T15:45:18 IST" name="configBM" finished-at="2025-03-17T15:45:18 IST" duration-ms="1" status="PASS">
+        <test-method is-config="true" signature="configBM()[pri:0, instance:com.joom.automation.SmokeTestCases.ManageProductsTest@fa36558]" started-at="2025-03-18T06:54:04 IST" name="configBM" finished-at="2025-03-18T06:54:04 IST" duration-ms="1" status="PASS">
           <reporter-output>
             <line>
               <![CDATA[=== Logging into Application ===]]>
             </line>
           </reporter-output>
         </test-method> <!-- configBM -->
-        <test-method signature="createCategory()[pri:0, instance:com.joom.automation.SystemTestCases.CreateCategoryTest@291b4bf5]" started-at="2025-03-17T15:45:18 IST" name="createCategory" finished-at="2025-03-17T15:45:25 IST" duration-ms="6874" status="FAIL">
-          <exception class="java.lang.AssertionError">
+        <test-method signature="deleteProducts(java.lang.String)[pri:0, instance:com.joom.automation.SmokeTestCases.ManageProductsTest@fa36558]" started-at="2025-03-18T06:54:04 IST" name="deleteProducts" data-provider="productData" finished-at="2025-03-18T06:54:09 IST" duration-ms="5216" status="FAIL">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[Asian Casuals  (White, White)]]>
+              </value>
+            </param>
+          </params>
+          <exception class="java.lang.NullPointerException">
             <message>
-              <![CDATA[The following asserts failed:
-expected [true] but found [false]]]>
+              <![CDATA[Cannot invoke "com.joom.automation.objectrepository.AdminPage.logout()" because "this.adp" is null]]>
             </message>
             <full-stacktrace>
-              <![CDATA[java.lang.AssertionError: The following asserts failed:
-expected [true] but found [false]
-at org.testng.asserts.SoftAssert.assertAll(SoftAssert.java:46)
-at org.testng.asserts.SoftAssert.assertAll(SoftAssert.java:30)
-at com.joom.automation.SystemTestCases.CreateCategoryTest.createCategory(CreateCategoryTest.java:72)
+              <![CDATA[java.lang.NullPointerException: Cannot invoke "com.joom.automation.objectrepository.AdminPage.logout()" because "this.adp" is null
+at com.joom.automation.SmokeTestCases.ManageProductsTest.deleteProducts(ManageProductsTest.java:70)
 at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
 at java.base/java.lang.reflect.Method.invoke(Method.java:580)
 at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
@@ -89,32 +114,311 @@ at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
 at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
 ]]>
             </full-stacktrace>
-          </exception> <!-- java.lang.AssertionError -->
+          </exception> <!-- java.lang.NullPointerException -->
           <reporter-output>
-            <line>
-              <![CDATA[category created successfully]]>
-            </line>
           </reporter-output>
-        </test-method> <!-- createCategory -->
-        <test-method is-config="true" signature="configAM()[pri:0, instance:com.joom.automation.SystemTestCases.CreateCategoryTest@291b4bf5]" started-at="2025-03-17T15:45:25 IST" name="configAM" finished-at="2025-03-17T15:45:25 IST" duration-ms="1" status="PASS">
+        </test-method> <!-- deleteProducts -->
+        <test-method is-config="true" signature="configAM()[pri:0, instance:com.joom.automation.SmokeTestCases.ManageProductsTest@fa36558]" started-at="2025-03-18T06:54:10 IST" name="configAM" finished-at="2025-03-18T06:54:10 IST" duration-ms="0" status="PASS">
           <reporter-output>
             <line>
               <![CDATA[=== Logging out of Application ===]]>
             </line>
           </reporter-output>
         </test-method> <!-- configAM -->
-        <test-method is-config="true" signature="configAC()[pri:0, instance:com.joom.automation.SystemTestCases.CreateCategoryTest@291b4bf5]" started-at="2025-03-17T15:45:25 IST" name="configAC" finished-at="2025-03-17T15:45:26 IST" duration-ms="356" status="PASS">
+        <test-method is-config="true" signature="configBM()[pri:0, instance:com.joom.automation.SmokeTestCases.ManageProductsTest@fa36558]" started-at="2025-03-18T06:54:10 IST" name="configBM" finished-at="2025-03-18T06:54:10 IST" duration-ms="1" status="PASS">
+          <reporter-output>
+            <line>
+              <![CDATA[=== Logging into Application ===]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- configBM -->
+        <test-method signature="deleteProducts(java.lang.String)[pri:0, instance:com.joom.automation.SmokeTestCases.ManageProductsTest@fa36558]" started-at="2025-03-18T06:54:10 IST" name="deleteProducts" data-provider="productData" finished-at="2025-03-18T06:55:20 IST" duration-ms="70070" status="FAIL">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[Adidas MESSI 16.3 TF Football turf Shoes (Blue)]]>
+              </value>
+            </param>
+          </params>
+          <exception class="org.openqa.selenium.NoSuchElementException">
+            <message>
+              <![CDATA[no such element: Unable to locate element: {"method":"link text","selector":"Admin Login"}
+  (Session info: chrome=134.0.6998.89)
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Build info: version: '4.29.0', revision: '5fc1ec94cb'
+System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '23.0.1'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [fd5177ae5d63247fe530b62c5c059e6d, findElement {value=Admin Login, using=link text}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 134.0.6998.89, chrome: {chromedriverVersion: 134.0.6998.88 (7e3d5c978c6d..., userDataDir: C:\Users\HP\AppData\Local\T...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:61200}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:61200/devtoo..., se:cdpVersion: 134.0.6998.89, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: fd5177ae5d63247fe530b62c5c059e6d]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {"method":"link text","selector":"Admin Login"}
+  (Session info: chrome=134.0.6998.89)
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Build info: version: '4.29.0', revision: '5fc1ec94cb'
+System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '23.0.1'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [fd5177ae5d63247fe530b62c5c059e6d, findElement {value=Admin Login, using=link text}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 134.0.6998.89, chrome: {chromedriverVersion: 134.0.6998.88 (7e3d5c978c6d..., userDataDir: C:\Users\HP\AppData\Local\T...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:61200}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:61200/devtoo..., se:cdpVersion: 134.0.6998.89, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: fd5177ae5d63247fe530b62c5c059e6d
+at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
+at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:501)
+at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:485)
+at org.openqa.selenium.remote.ErrorCodec.decode(ErrorCodec.java:167)
+at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:138)
+at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:50)
+at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:215)
+at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:216)
+at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:174)
+at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:545)
+at org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:165)
+at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:59)
+at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:368)
+at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:362)
+at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:68)
+at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:38)
+at jdk.proxy2/jdk.proxy2.$Proxy26.click(Unknown Source)
+at com.joom.automation.SmokeTestCases.ManageProductsTest.deleteProducts(ManageProductsTest.java:37)
+at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:686)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
+at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:992)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
+at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+at org.testng.TestRunner.privateRun(TestRunner.java:739)
+at org.testng.TestRunner.run(TestRunner.java:614)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:413)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:373)
+at org.testng.SuiteRunner.run(SuiteRunner.java:312)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1274)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1208)
+at org.testng.TestNG.runSuites(TestNG.java:1112)
+at org.testng.TestNG.run(TestNG.java:1079)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
+]]>
+            </full-stacktrace>
+          </exception> <!-- org.openqa.selenium.NoSuchElementException -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- deleteProducts -->
+        <test-method is-config="true" signature="configAM()[pri:0, instance:com.joom.automation.SmokeTestCases.ManageProductsTest@fa36558]" started-at="2025-03-18T06:55:20 IST" name="configAM" finished-at="2025-03-18T06:55:20 IST" duration-ms="0" status="PASS">
+          <reporter-output>
+            <line>
+              <![CDATA[=== Logging out of Application ===]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- configAM -->
+        <test-method is-config="true" signature="configBM()[pri:0, instance:com.joom.automation.SmokeTestCases.ManageProductsTest@fa36558]" started-at="2025-03-18T06:55:20 IST" name="configBM" finished-at="2025-03-18T06:55:20 IST" duration-ms="1" status="PASS">
+          <reporter-output>
+            <line>
+              <![CDATA[=== Logging into Application ===]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- configBM -->
+        <test-method signature="deleteProducts(java.lang.String)[pri:0, instance:com.joom.automation.SmokeTestCases.ManageProductsTest@fa36558]" started-at="2025-03-18T06:55:20 IST" name="deleteProducts" data-provider="productData" finished-at="2025-03-18T06:56:30 IST" duration-ms="70028" status="FAIL">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[ceramic vase]]>
+              </value>
+            </param>
+          </params>
+          <exception class="org.openqa.selenium.NoSuchElementException">
+            <message>
+              <![CDATA[no such element: Unable to locate element: {"method":"link text","selector":"Admin Login"}
+  (Session info: chrome=134.0.6998.89)
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Build info: version: '4.29.0', revision: '5fc1ec94cb'
+System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '23.0.1'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [fd5177ae5d63247fe530b62c5c059e6d, findElement {value=Admin Login, using=link text}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 134.0.6998.89, chrome: {chromedriverVersion: 134.0.6998.88 (7e3d5c978c6d..., userDataDir: C:\Users\HP\AppData\Local\T...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:61200}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:61200/devtoo..., se:cdpVersion: 134.0.6998.89, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: fd5177ae5d63247fe530b62c5c059e6d]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {"method":"link text","selector":"Admin Login"}
+  (Session info: chrome=134.0.6998.89)
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Build info: version: '4.29.0', revision: '5fc1ec94cb'
+System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '23.0.1'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [fd5177ae5d63247fe530b62c5c059e6d, findElement {value=Admin Login, using=link text}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 134.0.6998.89, chrome: {chromedriverVersion: 134.0.6998.88 (7e3d5c978c6d..., userDataDir: C:\Users\HP\AppData\Local\T...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:61200}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:61200/devtoo..., se:cdpVersion: 134.0.6998.89, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: fd5177ae5d63247fe530b62c5c059e6d
+at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
+at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:501)
+at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:485)
+at org.openqa.selenium.remote.ErrorCodec.decode(ErrorCodec.java:167)
+at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:138)
+at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:50)
+at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:215)
+at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:216)
+at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:174)
+at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:545)
+at org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:165)
+at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:59)
+at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:368)
+at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:362)
+at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:68)
+at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:38)
+at jdk.proxy2/jdk.proxy2.$Proxy26.click(Unknown Source)
+at com.joom.automation.SmokeTestCases.ManageProductsTest.deleteProducts(ManageProductsTest.java:37)
+at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:686)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
+at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:992)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
+at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+at org.testng.TestRunner.privateRun(TestRunner.java:739)
+at org.testng.TestRunner.run(TestRunner.java:614)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:413)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:373)
+at org.testng.SuiteRunner.run(SuiteRunner.java:312)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1274)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1208)
+at org.testng.TestNG.runSuites(TestNG.java:1112)
+at org.testng.TestNG.run(TestNG.java:1079)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
+]]>
+            </full-stacktrace>
+          </exception> <!-- org.openqa.selenium.NoSuchElementException -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- deleteProducts -->
+        <test-method is-config="true" signature="configAM()[pri:0, instance:com.joom.automation.SmokeTestCases.ManageProductsTest@fa36558]" started-at="2025-03-18T06:56:31 IST" name="configAM" finished-at="2025-03-18T06:56:31 IST" duration-ms="1" status="PASS">
+          <reporter-output>
+            <line>
+              <![CDATA[=== Logging out of Application ===]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- configAM -->
+        <test-method is-config="true" signature="configBM()[pri:0, instance:com.joom.automation.SmokeTestCases.ManageProductsTest@fa36558]" started-at="2025-03-18T06:56:31 IST" name="configBM" finished-at="2025-03-18T06:56:31 IST" duration-ms="1" status="PASS">
+          <reporter-output>
+            <line>
+              <![CDATA[=== Logging into Application ===]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- configBM -->
+        <test-method signature="deleteProducts(java.lang.String)[pri:0, instance:com.joom.automation.SmokeTestCases.ManageProductsTest@fa36558]" started-at="2025-03-18T06:56:31 IST" name="deleteProducts" data-provider="productData" finished-at="2025-03-18T06:57:41 IST" duration-ms="70064" status="FAIL">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[wall painting]]>
+              </value>
+            </param>
+          </params>
+          <exception class="org.openqa.selenium.NoSuchElementException">
+            <message>
+              <![CDATA[no such element: Unable to locate element: {"method":"link text","selector":"Admin Login"}
+  (Session info: chrome=134.0.6998.89)
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Build info: version: '4.29.0', revision: '5fc1ec94cb'
+System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '23.0.1'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [fd5177ae5d63247fe530b62c5c059e6d, findElement {value=Admin Login, using=link text}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 134.0.6998.89, chrome: {chromedriverVersion: 134.0.6998.88 (7e3d5c978c6d..., userDataDir: C:\Users\HP\AppData\Local\T...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:61200}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:61200/devtoo..., se:cdpVersion: 134.0.6998.89, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: fd5177ae5d63247fe530b62c5c059e6d]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {"method":"link text","selector":"Admin Login"}
+  (Session info: chrome=134.0.6998.89)
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Build info: version: '4.29.0', revision: '5fc1ec94cb'
+System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '23.0.1'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [fd5177ae5d63247fe530b62c5c059e6d, findElement {value=Admin Login, using=link text}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 134.0.6998.89, chrome: {chromedriverVersion: 134.0.6998.88 (7e3d5c978c6d..., userDataDir: C:\Users\HP\AppData\Local\T...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:61200}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:61200/devtoo..., se:cdpVersion: 134.0.6998.89, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: fd5177ae5d63247fe530b62c5c059e6d
+at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
+at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:501)
+at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:485)
+at org.openqa.selenium.remote.ErrorCodec.decode(ErrorCodec.java:167)
+at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:138)
+at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:50)
+at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:215)
+at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:216)
+at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:174)
+at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:545)
+at org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:165)
+at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:59)
+at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:368)
+at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:362)
+at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:68)
+at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:38)
+at jdk.proxy2/jdk.proxy2.$Proxy26.click(Unknown Source)
+at com.joom.automation.SmokeTestCases.ManageProductsTest.deleteProducts(ManageProductsTest.java:37)
+at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:686)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
+at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:992)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
+at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+at org.testng.TestRunner.privateRun(TestRunner.java:739)
+at org.testng.TestRunner.run(TestRunner.java:614)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:413)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:373)
+at org.testng.SuiteRunner.run(SuiteRunner.java:312)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1274)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1208)
+at org.testng.TestNG.runSuites(TestNG.java:1112)
+at org.testng.TestNG.run(TestNG.java:1079)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
+]]>
+            </full-stacktrace>
+          </exception> <!-- org.openqa.selenium.NoSuchElementException -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- deleteProducts -->
+        <test-method is-config="true" signature="configAM()[pri:0, instance:com.joom.automation.SmokeTestCases.ManageProductsTest@fa36558]" started-at="2025-03-18T06:57:41 IST" name="configAM" finished-at="2025-03-18T06:57:41 IST" duration-ms="1" status="PASS">
+          <reporter-output>
+            <line>
+              <![CDATA[=== Logging out of Application ===]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- configAM -->
+        <test-method is-config="true" signature="configAC()[pri:0, instance:com.joom.automation.SmokeTestCases.ManageProductsTest@fa36558]" started-at="2025-03-18T06:57:41 IST" name="configAC" finished-at="2025-03-18T06:57:42 IST" duration-ms="500" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- configAC -->
-        <test-method is-config="true" signature="configAS()[pri:0, instance:com.joom.automation.SystemTestCases.CreateCategoryTest@291b4bf5]" started-at="2025-03-17T15:45:26 IST" name="configAS" finished-at="2025-03-17T15:45:26 IST" duration-ms="2" status="PASS">
+        <test-method is-config="true" signature="configAS()[pri:0, instance:com.joom.automation.SmokeTestCases.ManageProductsTest@fa36558]" started-at="2025-03-18T06:57:42 IST" name="configAS" finished-at="2025-03-18T06:57:42 IST" duration-ms="1" status="PASS">
           <reporter-output>
             <line>
               <![CDATA[=== Closing DB Connection and Generating Reports ===]]>
             </line>
           </reporter-output>
         </test-method> <!-- configAS -->
-      </class> <!-- com.joom.automation.SystemTestCases.CreateCategoryTest -->
+      </class> <!-- com.joom.automation.SmokeTestCases.ManageProductsTest -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

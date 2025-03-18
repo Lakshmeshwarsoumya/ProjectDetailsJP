@@ -1,10 +1,12 @@
 package com.joom.automation.IntegrationTestCases;
 
+import java.io.File;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
+import org.testng.asserts.SoftAssert;
 
 import com.joom.automation.WebDriverUtility.WebdriverUtility;
 import com.joom.automation.baseutility.BaseClassForAdmin;
@@ -14,9 +16,10 @@ import com.joom.automation.objectrepository.AdminLoginPage;
 import com.joom.automation.objectrepository.AdminPage;
 import com.joom.automation.objectrepository.HomePage;
 import com.joom.automation.objectrepository.InsertProductPage;
+
 @Listeners(com.joom.automation.listenerutility.ListenerImplementation.class)
 public class InsertProductTest extends BaseClassForAdmin {
-	@Test(groups="Integration")
+	@Test(groups = "Integration")
 	public void insertProduct() throws Throwable {
 		adp = new AdminPage(driver);
 		wlib = new WebdriverUtility();
@@ -36,56 +39,48 @@ public class InsertProductTest extends BaseClassForAdmin {
 		adp.getInserProductLink().click();
 
 		InsertProductPage ipp = new InsertProductPage(driver);
-		wlib = new WebdriverUtility();
+		wlib.waitForElementPresent(driver, ipp.getCategoryDropDown(), 20);
 		wlib.select(ipp.getCategoryDropDown(), category);
-		Thread.sleep(2000);
+
 		String subcategory = ela.getDataFromExcel("Sheet1", 1, 2);
-
+		wlib.waitForElementPresent(driver, ipp.getSubCategoryDropDown(), 20);
 		wlib.select(ipp.getSubCategoryDropDown(), subcategory);
-		String productName = ela.getDataFromExcel("Sheet1", 1, 3);
 
-		ipp.getProductNameTextField().sendKeys(productName);
+		ipp.getProductNameTextField().sendKeys(ela.getDataFromExcel("Sheet1", 1, 3));
+		ipp.getProductCompanyTextField().sendKeys(ela.getDataFromExcel("Sheet1", 1, 4));
+		ipp.getProductPriceBd().sendKeys(ela.getDataFromExcel("Sheet1", 1, 5));
+		ipp.getProductpriceAd().sendKeys(ela.getDataFromExcel("Sheet1", 1, 6));
+		ipp.getDescriptionTextField().sendKeys(ela.getDataFromExcel("Sheet1", 1, 1));
+		ipp.getProductShippingChargeTextField().sendKeys(ela.getDataFromExcel("Sheet1", 1, 7));
+		wlib.select(ipp.getProductAvailabilityTF(), ela.getDataFromExcel("Sheet1", 1, 8));
 
-		String productCompany = ela.getDataFromExcel("Sheet1", 1, 4);
+		// Upload Product Images with file existence check
+		File file = new File("D:\\HP1\\Desktop\\vivo-mobile-phone-1000x1000.webp");
+		if (file.exists()) {
+			ipp.getImage1().sendKeys(file.getAbsolutePath());
+			ipp.getImage2().sendKeys(file.getAbsolutePath());
+			ipp.getImage3().sendKeys(file.getAbsolutePath());
+		} else {
+			System.out.println("File not found: " + file.getAbsolutePath());
+		}
 
-		ipp.getProductCompanyTextField().sendKeys(productCompany);
-
-		String productPriceBeforeDiscount = ela.getDataFromExcel("Sheet1", 1, 5);
-
-		ipp.getProductPriceBd().sendKeys(productPriceBeforeDiscount);
-
-		String productPriceAfterDiscount = ela.getDataFromExcel("Sheet1", 1, 6);
-		ipp.getProductpriceAd().sendKeys(productPriceAfterDiscount);
-
-		String productDiscription = ela.getDataFromExcel("Sheet1", 1, 1);
-
-		ipp.getDescriptionTextField().sendKeys(productDiscription);
-		String productShippingCharge = ela.getDataFromExcel("Sheet1", 1, 7);
+		// Scroll to Insert Button using Actions class
 		WebElement insertButton = driver.findElement(By.xpath("//button[text()='Insert']"));
-		
-		Actions act=new Actions(driver);
-		act.scrollToElement(insertButton);
+		Actions actions = new Actions(driver);
+		actions.moveToElement(insertButton).perform(); // Scroll naturally
 
-		ipp.getProductShippingChargeTextField().sendKeys(productShippingCharge);
-		String productAvailbility = ela.getDataFromExcel("Sheet1", 1, 8);
-		wlib.select(ipp.getProductAvailabilityTF(), productAvailbility);
-		
-		
-		WebElement fileInput1 = ipp.getImage1();
-		fileInput1.sendKeys("D:\\HP1\\Desktop\\vivo-mobile-phone-1000x1000.webp");
+		insertButton.click();
 
-        WebElement fileInput2 = ipp.getImage2();
-        fileInput2.sendKeys("D:\\HP1\\Desktop\\vivo-mobile-phone-1000x1000.webp");
+		// Verify Product Insertion Success Message
+		WebElement confirmationMsg = driver.findElement(By.xpath("//strong[contains(text(),'Well done!')]"));
+		wlib.waitForElementPresent(driver, confirmationMsg, 20);
+		String actualMsg = confirmationMsg.getText();
 
-        WebElement fileInput3 = ipp.getImage3();
-        fileInput3.sendKeys("D:\\HP1\\Desktop\\vivo-mobile-phone-1000x1000.webp");
+		SoftAssert sa = new SoftAssert();
+		sa.assertEquals(actualMsg, "Well done!", "Verification Failed: Message Mismatch");
+		sa.assertAll();
 
-        // Click the Insert butto/.n
-       
-        insertButton.click();
-        
-        adp.getLogoutLink().click();
-
+		// Logout
+		adp.getLogoutLink().click();
 	}
-
 }

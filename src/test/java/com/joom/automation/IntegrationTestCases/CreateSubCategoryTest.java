@@ -1,6 +1,5 @@
 package com.joom.automation.IntegrationTestCases;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.testng.Reporter;
 import org.testng.annotations.Listeners;
@@ -10,59 +9,70 @@ import org.testng.asserts.SoftAssert;
 import com.joom.automation.WebDriverUtility.WebdriverUtility;
 import com.joom.automation.baseutility.BaseClassForAdmin;
 import com.joom.automation.generic.fileutility.ExcelUtility;
-
 import com.joom.automation.generic.fileutility.JsonForAdminUtility;
 import com.joom.automation.objectrepository.AdminLoginPage;
 import com.joom.automation.objectrepository.AdminPage;
 import com.joom.automation.objectrepository.HomePage;
 import com.joom.automation.objectrepository.SubCategoryPage;
+
 @Listeners(com.joom.automation.listenerutility.ListenerImplementation.class)
 public class CreateSubCategoryTest extends BaseClassForAdmin {
-	@Test(groups="Integration")
-	public void insertSubcategory() throws Throwable {
-		wlib = new WebdriverUtility();
-		jad = new JsonForAdminUtility();
 
+	@Test(groups = "Integration")
+	public void insertSubcategory() throws Throwable {
+		WebdriverUtility wlib = new WebdriverUtility();
+		JsonForAdminUtility jad = new JsonForAdminUtility();
+		ExcelUtility ela = new ExcelUtility();
+
+		// Read credentials from JSON
 		String USERNAME = jad.readDataFromJson("username");
 		String PASSWORD = jad.readDataFromJson("password");
 
-		hp = new HomePage(driver);
+		// Navigate to Admin Login
+		HomePage hp = new HomePage(driver);
 		hp.getAdminLoginLink().click();
 
-		adlp = new AdminLoginPage(driver);
+		AdminLoginPage adlp = new AdminLoginPage(driver);
 		adlp.adminLogin(USERNAME, PASSWORD);
 
-		ela = new ExcelUtility();
-		scp = new SubCategoryPage(driver);
-		adp = new AdminPage(driver);
-		Thread.sleep(2000);
+		SubCategoryPage scp = new SubCategoryPage(driver);
+		AdminPage adp = new AdminPage(driver);
+
+		// Click on SubCategory Link
 		WebElement subCategory = adp.getSubCategoryLink();
+		wlib.waitForElementPresent(driver, subCategory, 20);
 		subCategory.click();
-		
-		wlib.waitForElementPresent(driver,subCategory , 20);
+
+		// Select Category from Dropdown
 		WebElement category = scp.getCategoryDropdown();
-		Thread.sleep(2000);
+		wlib.waitForElementPresent(driver, category, 20);
 		category.click();
-		Thread.sleep(2000);
+
 		String categoryList = ela.getDataFromExcel("Sheet1", 1, 0);
+		wlib.select(scp.getCategoryDropdown(), categoryList);
 
-		WebElement selectDropdown = scp.getCategoryDropdown();
-		wlib.select(selectDropdown, categoryList);
+		// Enter SubCategory Name
 		String subCategoryList = ela.getDataFromExcel("Sheet1", 1, 2);
-		Thread.sleep(2000);
 		scp.getSubCategoryDropdown().sendKeys(subCategoryList);
-		
+
+		// Click Create Button
 		WebElement createButton = scp.getCreateButton();
-		wlib.waitForElementPresent(driver,createButton , 20);
+		wlib.waitForElementPresent(driver, createButton, 20);
 		createButton.click();
+
+		// Validate Confirmation Message
 		WebElement text = scp.getConfirmMsg();
-		wlib.waitForElementPresent(driver,text , 20);
-		
-		text.getText();
+		wlib.waitForElementPresent(driver, text, 20);
+		String actualMsg = text.getText();
+
 		SoftAssert sa = new SoftAssert();
-		sa.assertEquals(text, true);
-		Reporter.log("created sub category", true);
+		sa.assertEquals(actualMsg, "Well done!", "Verification Failed: Message Mismatch");
+		Reporter.log("Sub-category created successfully", true);
 
+		// Logout
+		adp.logout();
+
+		// Assert all
+		sa.assertAll();
 	}
-
 }

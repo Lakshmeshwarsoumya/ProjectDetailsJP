@@ -28,7 +28,7 @@ public class UserNewContactTest extends BaseClassForAdmin { // Extend BaseClassF
     
     @Test(priority = 1)
     public void userNewContactTest() throws EncryptedDocumentException, IOException, InterruptedException {
-        WebDriver driver = super.driver; // Get initialized WebDriver
+        WebDriver sdriver = driver; // Get initialized WebDriver
 
         HomePage hp = new HomePage(driver);
         WebElement login = hp.getLoginLink();

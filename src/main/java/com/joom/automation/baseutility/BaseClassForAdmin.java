@@ -32,6 +32,7 @@ import com.joom.automation.objectrepository.ManageProductsPage;
 import com.joom.automation.objectrepository.SubCategoryPage;
 import com.joom.automation.objectrepository.UserBooksCategoryPage;
 import com.joom.automation.objectrepository.UserFashionCategoryPage;
+import com.joom.automation.objectrepository.UserLogOutPage;
 import com.joom.automation.objectrepository.UserMyCartPage;
 import com.joom.automation.objectrepository.UserPaymentMethodPage;
 import com.joom.automation.objectrepository.UserProductDetailsPage;
@@ -62,6 +63,7 @@ public class BaseClassForAdmin {
 	public UserProductDetailsPage updp;
 	public UserPaymentMethodPage upmp;
 	public JsonForUserUtility  jsd;
+	public UserLogOutPage ullp;
 
 	@BeforeSuite(groups={"Integration","System","Smoke"})
 	public void configBS() {
